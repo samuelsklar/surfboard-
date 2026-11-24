@@ -10,6 +10,7 @@ Carried over from Sam's private project on 2026-11-21. Edit designs in Fusion 36
 - `designs/archive/`: earlier 6'6" iterations (original, build, concave, fins, v2–v4), kept for reference.
 - `templates/`: 1:1 half-outline templates for both boards.
   - `*_FULLSIZE_85x18in.pdf` / `*_87x18in.pdf`: one long sheet for a print shop plotter (24" or 36" roll). Print at 100%, no "fit to page", on heavy paper or card stock.
+  - `*_STAPLES_36x48in.pdf`: the full-size template split into two pieces (tail half A, nose half B) side by side on one 36x48" sheet, for Staples-style engineering prints. Print at 100%, no fit-to-page; check the 1" square and the two 12" bars. Cut each piece on its black border, overlap the shaded 2" bands so crosses X1-X4 and the red stringer line match, tape both sides. These sheets also carry shaping marks taken from the design files: a colored line outside the rail for the rail type (red hard edge from the tail to 14", orange blend to 20", green soft round rail, blue nose), and strips under the stringer showing where the rocker starts and how high it lifts, the vee and concave zones, and thickness on the stringer. Made by `scripts/split36x48.py` from the FULLSIZE PDF, the outline DXF and `scripts/shaping/*.json` (measured by `scripts/shaping_data.py`).
   - `*_TILED_letter_18pages.pdf`: home-printable backup, 18 letter pages taped together on crosshairs.
   - `*_outline.dxf`: outline in inches, for CAD or a CNC/laser shop.
   - Each template shows the half outline (stringer to rail), inch marks from tail and nose, widths every 6", wide point, fin bases with toe/cant labels, leash plug, and two 10" scale bars to check the print.
@@ -48,10 +49,10 @@ Carried over from Sam's private project on 2026-11-21. Edit designs in Fusion 36
 
 ## Fins and leash (both boards)
 - Glass-on thruster, homemade angle guides (no kit). Fins go on after lamination, before the hot coat.
-- Side fins: 5° cant, ~3/16" toe-in (2–3°), front of base 11" from tail, 1 1/4" in from rail (per original notes).
+- Side fins (settled 2026-11-24, drawn on all templates): 5° cant, toe-in 3/16" over the base (front points toward the stringer, ~2.5°). Front of base 11" from tail, 2 5/16" in from the rail on the 6'6" (2 3/16" on the 6'8"). Back of base 6 3/4" from tail, 3/4" in from the rail. Mark them from the templates.
 - Center fin: 0°, on stringer, back of base 3 1/4" from tail (STEP file: 3 1/4"–7 11/16").
 - Leash plug: deck, on stringer, 2 1/2" from tail, 1" hole.
-- **Open issue:** in both STEP files the side fins don't match the notes. The front of each side fin base is ~2 1/16" in from the rail (not 1 1/4"), the back end is only ~3/8" from the rail, and toe is 3.2°. The templates draw the fins exactly as the files have them. Decide whether to move them before marking fins.
+- Note: the fin bodies in the STEP files still sit in the old spot (back end ~3/8" from the rail, 3.2° toe). The templates are the reference for fin placement.
 
 ## Tools
 - Foam removal: power planer (an older Makita 1900B-style 3 1/4" planer works; put in sharp blades) or a Surform by hand.
@@ -65,8 +66,7 @@ Carried over from Sam's private project on 2026-11-21. Edit designs in Fusion 36
 Greenlight Surf Supply, Manasquan, NJ. Ask for Brian.
 
 ## Open questions
-1. Side fin position: keep the STEP-file placement (~2 1/16" from rail) or move to 1 1/4" as in the notes? Applies to both boards.
-2. 66SB actual length and width (Sam needs ~6'7"+ long, 21 1/2"+ wide).
-3. Cost of having Greenlight glue a stringer into the 66SB vs doing it yourself.
-4. Stringer thickness check (Sam's wood vs friend's PVC), and whether Sam got the stringer he paid for.
-5. Friend's rider details (see friend's board section).
+1. 66SB actual length and width (Sam needs ~6'7"+ long, 21 1/2"+ wide).
+2. Cost of having Greenlight glue a stringer into the 66SB vs doing it yourself.
+3. Stringer thickness check (Sam's wood vs friend's PVC), and whether Sam got the stringer he paid for.
+4. Friend's rider details (see friend's board section).

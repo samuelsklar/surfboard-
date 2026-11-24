@@ -32,8 +32,10 @@ sb,sf=mid(side,0); toe=math.degrees(math.atan2(sb[1]-sf[1], sf[0]-sb[0]))
 def order(pts):
     c=np.mean(pts,0); return sorted(pts,key=lambda p:math.atan2(p[1]-c[1],p[0]-c[0]))
 side_o=order(side); ctr_o=order(ctr); ls=F["leash"]
+_RX=np.linspace(0,30,6000); _RL=np.c_[_RX,np.interp(_RX,OUT[:,0],OUT[:,1])]
+clr=lambda p: float(np.min(np.hypot(*(_RL-np.asarray(p)).T)))
 info=dict(L=L,wpx=wpx,wpw=wpw,tail12=2*hw(12),nose12=2*hw(L-12),center=2*hw(L/2),
-  side_front=sf.tolist(), side_back=sb.tolist(), toe=toe, side_front_from_rail=hw(sf[0])-sf[1], side_back_from_rail=hw(sb[0])-sb[1],
+  side_front=sf.tolist(), side_back=sb.tolist(), toe=toe, side_front_from_rail=clr(sf), side_back_from_rail=clr(sb),
   ctr=[min(p[0] for p in ctr), max(p[0] for p in ctr)], leash=ls)
 print(json.dumps(info,indent=1))
 stations=sorted(set([s for s in np.arange(6,L,6) if s<L-1]+[L-12, L/2]))
@@ -90,8 +92,9 @@ def drawing(c, title=True):
     for pnt in (sf,sb): c.circle(pnt[0],pnt[1],0.04,fill=1,stroke=0)
     c.setFillColor(black); c.setFont("Helvetica-Bold",0.12)
     tx, ty = sf[0]+1.6, sf[1]+0.9
-    lines=['SIDE FIN BASE (mark both sides - mirror)', f'front of base {frac(sf[0])} from tail, {frac(info["side_front_from_rail"])} in from rail',
-           f'back of base {frac(sb[0])} from tail', f'toe-in {toe:.1f} deg (front points toward stringer)', 'cant 5 deg (fin tip leans out toward rail)']
+    lines=['SIDE FIN BASE (mark both sides - mirror)', f'front of base {frac(sf[0])} from tail, {frac(info["side_front_from_rail"])} in from rail edge',
+           f'back of base {frac(sb[0])} from tail, {frac(info["side_back_from_rail"])} in from rail edge', 'toe-in 3/16" over the base (front points toward stringer)',
+           'cant 5 deg (fin tip leans out toward rail)', f'use side fins with a base {frac(np.linalg.norm(sf-sb))} long or shorter']
     for k,t in enumerate(lines): c.setFont("Helvetica-Bold" if k==0 else "Helvetica",0.12); c.drawString(tx,ty-k*0.17,t)
     c.setLineWidth(0.008); c.line(tx-0.05, ty-0.3, sf[0]+0.05, sf[1]+0.1)
     c.setFont("Helvetica-Bold",0.12); cx0,cx1=info["ctr"]
@@ -133,7 +136,7 @@ TX=L-31; TY=H-MB-0.8
 c.setFillColor(black); c.setFont("Helvetica-Bold",0.45); c.drawString(TX,TY,f'{name}  -  HALF OUTLINE TEMPLATE  -  FULL SIZE 1:1')
 c.setFont("Helvetica",0.2)
 txt=[f'Length {frac(L)} ({int(L//12)}\'{frac(L%12)}) tip to tip   |   Max width {frac(wpw)}   |   Tail @12" {frac(info["tail12"])}   |   Nose @12" {frac(info["nose12"])}',
-     f'Sheet {W:.0f}" x {H}" - fits a 24" or 36" plotter roll.  Units: inches.  Source: {sys.argv[7]}',
+     f'Sheet {W:.0f}" x {H}" - fits a 24" or 36" plotter roll.  Units: inches.  Source: {sys.argv[7]} (side fins repositioned 2026-11-24)',
      'PRINT SHOP: print at 100% / ACTUAL SIZE. NO "fit to page", NO scaling. Check both 10" scale bars after printing.',
      'Use: cut out along the rail line and the stringer line, trace onto 1/8" hardboard, cut and sand that to the line.',
      'On the blank: snap the stringer line, mark stations from the tail tip, trace one side, flip and trace the other.']
