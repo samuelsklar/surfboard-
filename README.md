@@ -49,10 +49,10 @@ Carried over from Sam's private project on 2026-11-21. Edit designs in Fusion 36
 
 ## Fins and leash (both boards)
 - Glass-on thruster, homemade angle guides (no kit). Fins go on after lamination, before the hot coat.
-- Side fins: 5° cant, ~3/16" toe-in (2–3°), front of base 11" from tail, 1 1/4" in from rail (per original notes).
+- Side fins (settled 2026-11-24, drawn on all templates): 5° cant, toe-in 3/16" over the base (front points toward the stringer, ~2.5°). Front of base 11" from tail, 2 5/16" in from the rail on the 6'6" (2 3/16" on the 6'8"). Back of base 6 3/4" from tail, 3/4" in from the rail. Mark them from the templates.
 - Center fin: 0°, on stringer, back of base 3 1/4" from tail (STEP file: 3 1/4"–7 11/16").
 - Leash plug: deck, on stringer, 2 1/2" from tail, 1" hole.
-- **Open issue:** in both STEP files the side fins don't match the notes. The front of each side fin base is ~2 1/16" in from the rail (not 1 1/4"), the back end is only ~3/8" from the rail, and toe is 3.2°. The templates draw the fins exactly as the files have them. Decide whether to move them before marking fins.
+- Note: the fin bodies in the STEP files still sit in the old spot (back end ~3/8" from the rail, 3.2° toe). The templates are the reference for fin placement.
 
 ## Tools
 - Foam removal: power planer (an older Makita 1900B-style 3 1/4" planer works; put in sharp blades) or a Surform by hand.
@@ -66,8 +66,7 @@ Carried over from Sam's private project on 2026-11-21. Edit designs in Fusion 36
 Greenlight Surf Supply, Manasquan, NJ. Ask for Brian.
 
 ## Open questions
-1. Side fin position: keep the STEP-file placement (~2 1/16" from rail) or move to 1 1/4" as in the notes? Applies to both boards.
-2. 66SB actual length and width (Sam needs ~6'7"+ long, 21 1/2"+ wide).
-3. Cost of having Greenlight glue a stringer into the 66SB vs doing it yourself.
-4. Stringer thickness check (Sam's wood vs friend's PVC), and whether Sam got the stringer he paid for.
-5. Friend's rider details (see friend's board section).
+1. 66SB actual length and width (Sam needs ~6'7"+ long, 21 1/2"+ wide).
+2. Cost of having Greenlight glue a stringer into the 66SB vs doing it yourself.
+3. Stringer thickness check (Sam's wood vs friend's PVC), and whether Sam got the stringer he paid for.
+4. Friend's rider details (see friend's board section).
